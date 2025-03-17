@@ -38,7 +38,7 @@ df1 = df[df['Category'] == selected_category]
 subcategories = df1['Sub_Category'].unique().tolist()
 selected_subcategories = st.multiselect("Select Subcategories", subcategories)
 st.write("### (3) show a line chart of sales for the selected items in (2)")
-df2 = df1[df1['Sub_Category'] == selected_subcategories]
+df2 = df1[df1['Sub_Category'].isin(selected_subcategories)]
 st.dataframe(df2)
 st.line_chart
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
