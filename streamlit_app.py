@@ -42,6 +42,6 @@ df2 = df1[df1['Sub_Category'].isin(selected_subcategories)]
 st.dataframe(df2)
 sales_by_month1 = df2.groupby(['Sub_Category', pd.Grouper(freq='M')])['Sales'].sum().unstack(level=0)
 st.dataframe(sales_by_month1)
-st.line_chart(sales_by_month1, y="Sales")
+st.line_chart(sales_by_month1)
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
 st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories)")
